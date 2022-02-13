@@ -23,6 +23,11 @@ namespace TestAPI.Controllers
             double standard = 0;
             double sd = 0;
 
+
+            foreach (double i in lint)
+            {
+                Console.WriteLine(LogObject(i));
+            }
             lint.Sort();
 
 
@@ -31,16 +36,16 @@ namespace TestAPI.Controllers
                 counter++;
                 sum += i;
                 mean = sum / counter;
-                standard += Math.Pow((i - mean),2);
+                standard += Math.Pow((i - mean), 2);
                 Console.WriteLine(standard.ToString());
-                sd =Math.Sqrt((standard) / (lint.Count-1));
-                if(counter<=1)
+                sd = Math.Sqrt((standard) / (lint.Count - 1));
+                if (counter <= 1)
                 {
                     slist.Add("List too small");
                 }
                 else
-                { 
-                slist.Add("Element: " + counter + " Current Standard Deviation is : " + sd);
+                {
+                    slist.Add("Element: " + counter + " Current Standard Deviation is : " + sd);
                 }
             }
             Console.WriteLine("Sum: " + sum);
@@ -48,7 +53,10 @@ namespace TestAPI.Controllers
             return slist;
         }
 
-
+        double LogObject(double input)
+        {
+            return input;
+        }
     }
 
 
